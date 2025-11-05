@@ -48,8 +48,6 @@ O site foi projetado para ser **leve, acessível e totalmente responsivo**, gara
 
 - **HTML5** → Estrutura semântica do conteúdo.
 - **CSS3 (Flexbox e Grid)** → Layout responsivo e estilização moderna.
-- **JavaScript (ES6+)** → Funcionalidades dinâmicas e interatividade.
-- **FormSubmit** → Envio de mensagens via formulário de contato sem backend.
 - **Google Fonts (Poppins)** → Tipografia moderna e legível.
 
 <br />
