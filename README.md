@@ -26,18 +26,16 @@ O site foi projetado para ser **leve, acessível e totalmente responsivo**, gara
 
 
 ```
-📁 projeto-portfolio/
+📁 PORTFOLIO/
 │
 ├── 📄 index.html          # Página principal do portfólio
 ├── 📄 sucess.html         # Página exibida após envio do formulário
 │
 └── 📁 assets/
     ├── 📁 css/
-    │   └── styles.css     # Folha de estilos principal
+    │   └── styles.css      # Folha de estilos principal
     ├── 📁 img/            # Imagens e ícones utilizados
-    ├── 📁 js/
-    │   └── scripts.js     # Script principal do site
-    └── 📁 docs/           # Documentação técnica complementar
+        └── 📁 documentos/ # Documentação técnica complementar
         ├── css.md		   # Documentação técnica CSS
         └── html.md		   # Documentação técnica HTML
 ```
@@ -66,6 +64,7 @@ Para visualizar o projeto localmente, siga as instruções abaixo:
 
 - [Visual Studio Code](https://code.visualstudio.com/) (ou outro editor de sua preferência)
 - Extensão **Live Server** no VSCode
+- Entensão **HTML/CSS/JavaScript Snippets** no VSCode
 
 ### Passos
 
