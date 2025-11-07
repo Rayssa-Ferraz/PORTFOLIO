@@ -21,7 +21,7 @@ async function getApiGitHub() {
 
         let conteudo = `
 
-        <<!-- FOTO DO PERFIL -->
+        <!-- FOTO DO PERFIL -->
             <figure class="about_image">
                 <img
                     src="${perfilJson.avatar_url}"
@@ -119,6 +119,45 @@ formulario.addEventListener('submit', function (event) {
     //Se todas as validações passarem, enviar o formulário
     formulario.submit();
 });    
+
+// === FUNÇÃO PARA BUSCAR OS 2 ÚLTIMOS REPOSITÓRIOS ===
+async function getRepositoriosRecentes() {
+    try {
+        const resposta = await fetch("https://api.github.com/users/Rayssa-Ferraz/repos?sort=created&direction=desc");
+        const repositorios = await resposta.json();
+
+        // Pega apenas os 2 mais recentes
+        const ultimosDois = repositorios.slice(0, 2);
+        const container = document.getElementById("repo-list");
+
+        container.innerHTML = "";
+        for (const repo of ultimosDois) {
+            // Busca o idioma do repositório (ex: Java, HTML, CSS)
+            const linguagemUrl = `https://api.github.com/repos/Rayssa-Ferraz/${repo.name}`;
+            const respostaLinguagem = await fetch(linguagemUrl);
+            const dadosRepo = await respostaLinguagem.json();
+            const linguagem = dadosRepo.language || "Não especificado";
+
+            const div = document.createElement("div");
+            div.classList.add("repo-card");
+            div.innerHTML = `
+                <h3>${repo.name}</h3>
+                <p>${repo.description ? repo.description : "Sem descrição disponível."}</p>
+                <p class="repo-language"><strong>Linguagem:</strong> ${linguagem}</p>
+                <a href="${repo.html_url}" target="_blank" class="botao">Ver no GitHub</a>
+            `;
+            container.appendChild(div);
+        }
+    } catch (erro) {
+        console.error("Erro ao buscar repositórios:", erro);
+        document.getElementById("repo-list").innerHTML = "<p>Não foi possível carregar os repositórios 😢</p>";
+    }
+}
+
+
+// Chamar a função assim que o site carregar
+getRepositoriosRecentes();
+
 
 //Chamar a função getApiGitHub
 
